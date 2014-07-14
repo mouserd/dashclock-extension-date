@@ -129,20 +129,25 @@
         <groupId>com.crashlytics</groupId>
         <artifactId>crashlytics-maven</artifactId>
         <version>1.9.1</version>
-        <!--<executions>-->
-          <!--<execution>-->
-            <!--<id>GenerateResources</id>-->
-            <!--<goals>-->
-              <!--<goal>GenerateResources</goal>-->
-            <!--</goals>-->
-          <!--</execution>-->
-          <!--<execution>-->
-            <!--<id>CleanupResources</id>-->
-            <!--<goals>-->
-              <!--<goal>CleanupResources</goal>-->
-            <!--</goals>-->
-          <!--</execution>-->
-        <!--</executions>-->
+        <configuration>
+          <androidAssetsPath>${project.basedir}/assets</androidAssetsPath>
+          <androidManifestPath>${project.basedir}/AndroidManifest.xml</androidManifestPath>
+          <androidResPath>${project.basedir}/res</androidResPath>
+        </configuration>
+        <executions>
+          <execution>
+            <id>GenerateResources</id>
+            <goals>
+              <goal>GenerateResources</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>CleanupResources</id>
+            <goals>
+              <goal>CleanupResources</goal>
+            </goals>
+          </execution>
+        </executions>
       </plugin>
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
