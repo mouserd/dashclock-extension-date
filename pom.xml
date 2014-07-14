@@ -187,17 +187,22 @@
         </property>
       </activation>
       <properties>
+        <debuggable>true</debuggable>
         <deployment.stage>In Development</deployment.stage>
       </properties>
     </profile>
     <profile>
       <id>production</id>
       <properties>
+        <debuggable>false</debuggable>
         <deployment.stage>In Production</deployment.stage>
       </properties>
     </profile>
     <profile>
       <id>release</id>
+      <properties>
+        <debuggable>false</debuggable>
+      </properties>
       <!-- via this activation the profile is automatically used when the release
         is done with the maven release plugin -->
       <activation>
