@@ -2,7 +2,7 @@
 <resources>
   <string name="app_name">DashClock MyDate Extension</string>
   <string name="extension_label">MyDate</string>
-  <string name="extension_description">An extension for DashClock to display your devices current date</string>
+  <string name="extension_description">Display the current date</string>
   <!--<string name="extension_expanded_body_uptime_line" formatted="false">Uptime: %s</string>-->
   <!--<string name="extension_expanded_body_uptime_format" formatted="false">%dd %dh %dm</string>-->
   <!--<string name="extension_expanded_body_uptime_unavailable">n/a</string>-->
