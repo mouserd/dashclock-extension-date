@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 
-public class MyDateExtensionActivity extends Activity {
+public class DateExtensionActivity extends Activity {
 
   /**
    * Called when the activity is first created.

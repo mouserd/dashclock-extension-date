@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="app_name">DashClock MyDate Extension</string>
-  <string name="extension_label">MyDate</string>
+  <string name="app_name">DashClock Date Extension</string>
+  <string name="extension_label">Date</string>
   <string name="extension_description">Displays your current date</string>
   <string name="action_settings">Settings</string>
 </resources>

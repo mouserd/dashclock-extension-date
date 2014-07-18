@@ -1,6 +1,6 @@
-## <img src="res/drawable-ldpi/ic_launcher.png"> DashClock MyDate Extension
+## <img src="res/drawable-ldpi/ic_launcher.png"> DashClock Date Extension
 
-[DashClock MyDate Extension](https://play.google.com/store/apps/details?id=com.pixelus.dashclock.ext.mydate) 
+[DashClock Date Extension](https://play.google.com/store/apps/details?id=com.pixelus.dashclock.ext.mydate) 
 is an extension for the 
 [DashClock Widget](https://play.google.com/store/apps/details?id=net.nurik.roman.dashclock) from Roman Nurik.
 

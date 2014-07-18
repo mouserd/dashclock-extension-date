@@ -12,9 +12,9 @@ import java.util.Date;
 import static java.text.DateFormat.LONG;
 import static java.text.DateFormat.SHORT;
 
-public class MyDateExtension extends DashClockExtension {
+public class DateExtension extends DashClockExtension {
 
-  public static final String TAG = MyDateExtension.class.getName();
+  public static final String TAG = DateExtension.class.getName();
 
   private boolean crashlyticsStarted = false;
 
