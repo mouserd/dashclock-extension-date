@@ -4,4 +4,7 @@
   <string name="extension_label">Date</string>
   <string name="extension_description">Displays your current date</string>
   <string name="action_settings">Settings</string>
+
+  <string name="extension_settings_title">Date Settings</string>
+  <string name="pref_click_intent_shortcut_title">Shortcut</string>
 </resources>
