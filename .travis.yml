@@ -1,4 +1,7 @@
 language: android
+# Validate triggers the installation of local libs using the
+# maven-install-plugin.  See pom.xml for specific libs.
+before_script: "mvn validate"
 android:
   components:
     - build-tools-19.0.2
