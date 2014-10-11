@@ -4,11 +4,42 @@
 
   <PreferenceCategory android:title="General">
     <com.pixelus.android.widget.InstalledApplicationsListPreference
-      android:key="pref_click_intent_shortcut"
-      android:title="@string/pref_click_intent_shortcut_title"
-      android:entries="@array/pref_entries_choose_apps"
-      android:entryValues="@array/pref_values_choose_apps"
-      android:defaultValue="" />
+        android:key="pref_click_intent_shortcut"
+        android:title="@string/pref_click_intent_shortcut_title"
+        android:entries="@array/pref_entries_choose_apps"
+        android:entryValues="@array/pref_values_choose_apps"
+        android:defaultValue="" />
+
+  </PreferenceCategory>
+
+  <PreferenceCategory android:title="Date Formats">
+    <CheckBoxPreference
+        android:key="pref_use_custom_date_formats"
+        android:title="@string/pref_use_custom_date_formats_title"
+        android:defaultValue="false"
+        android:disableDependentsState="false"
+        android:summary="Note: only valid java date format patterns may be used"/>
+
+    <EditTextPreference
+        android:key="pref_short_date_format"
+        android:title="@string/pref_short_date_format_title"
+        android:selectAllOnFocus="false"
+        android:autoText="false"
+        android:inputType="textNoSuggestions"
+        android:singleLine="true"
+        android:maxLines="1"
+        android:dependency="pref_use_custom_date_formats"/>
+
+    <EditTextPreference
+        android:key="pref_long_date_format"
+        android:title="@string/pref_long_date_format_title"
+        android:selectAllOnFocus="false"
+        android:autoText="false"
+        android:inputType="textNoSuggestions"
+        android:singleLine="true"
+        android:maxLines="1"
+        android:dependency="pref_use_custom_date_formats"/>
+
   </PreferenceCategory>
 
 </PreferenceScreen>

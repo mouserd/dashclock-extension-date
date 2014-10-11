@@ -7,4 +7,8 @@
 
   <string name="extension_settings_title">Date Settings</string>
   <string name="pref_click_intent_shortcut_title">Shortcut</string>
+  <string name="pref_short_date_format_title">Short date format</string>
+  <string name="pref_long_date_format_title">Long date format</string>
+  <string name="pref_use_custom_date_formats_title">Use custom date formats?</string>
+  <string name="invalid_date_pattern_message">Invalid date format!</string>
 </resources>

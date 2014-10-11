@@ -9,7 +9,6 @@ import com.crashlytics.android.Crashlytics;
 import com.google.android.apps.dashclock.api.DashClockExtension;
 import com.google.android.apps.dashclock.api.ExtensionData;
 
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -24,8 +23,23 @@ public class DateExtension extends DashClockExtension {
   public static final String TAG = DateExtension.class.getSimpleName();
   public static final String PREF_CLICK_INTENT_APPLICATION = "pref_click_intent_shortcut";
 
-  @Override public void onCreate() {
+  public static final String PREF_USE_CUSTOM_DATE_FORMATS = "pref_use_custom_date_formats";
+
+  public static final String PREF_SHORT_DATE_FORMAT = "pref_short_date_format";
+  public static final String PREF_LONG_DATE_FORMAT = "pref_long_date_format";
+
+  public static final String DEFAULT_LONG_DATE_FORMAT =
+      "EEEEE" + " " + ((SimpleDateFormat) SimpleDateFormat.getDateInstance(LONG)).toLocalizedPattern();
+  public static final String DEFAULT_SHORT_DATE_FORMAT =
+      ((SimpleDateFormat) SimpleDateFormat.getDateInstance(SHORT)).toLocalizedPattern();
+
+  private SharedPreferences sp;
+
+  @Override
+  public void onCreate() {
     super.onCreate();
+
+    sp = PreferenceManager.getDefaultSharedPreferences(this);
 
     Crashlytics.start(this);
   }
@@ -34,8 +48,11 @@ public class DateExtension extends DashClockExtension {
   protected void onUpdateData(int i) {
 
     final Date currentDate = new Date();
-    final String status = DateFormat.getDateInstance(SHORT).format(currentDate);
-    final String expandedTitle = getDayOfWeek(currentDate) + " " + DateFormat.getDateInstance(LONG).format(currentDate);
+    final SimpleDateFormat longDateFormat = getDateFormat(PREF_LONG_DATE_FORMAT, DEFAULT_LONG_DATE_FORMAT);
+    final SimpleDateFormat shortDateFormat = getDateFormat(PREF_SHORT_DATE_FORMAT, DEFAULT_SHORT_DATE_FORMAT);
+
+    final String status = shortDateFormat.format(currentDate);
+    final String expandedTitle = longDateFormat.format(currentDate);
 
     Log.d(TAG, "short date: " + status);
     Log.d(TAG, "long date: " + expandedTitle);
@@ -49,14 +66,21 @@ public class DateExtension extends DashClockExtension {
     );
   }
 
-  private String getDayOfWeek(Date currentDate) {
-    SimpleDateFormat sdf = new SimpleDateFormat("EEEEEEE"); // Set your date format
-    return sdf.format(currentDate);
+  private SimpleDateFormat getDateFormat(final String prefFormatKey, final String defaultFormat) {
+
+    final String customDateFormat = sp.getString(prefFormatKey, "");
+    final boolean useCustomDateFormats = sp.getBoolean(PREF_USE_CUSTOM_DATE_FORMATS, false);
+
+    if (useCustomDateFormats && !customDateFormat.isEmpty()) {
+        // Here we assume that the custom date format has already been validated and is safe!
+        return new SimpleDateFormat(customDateFormat);
+    }
+
+    return new SimpleDateFormat(defaultFormat);
   }
 
   public Intent createClickIntent() {
 
-    final SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
     final String intentPackageName = sp.getString(PREF_CLICK_INTENT_APPLICATION, "");
     if (intentPackageName.isEmpty()) {
       return null;
