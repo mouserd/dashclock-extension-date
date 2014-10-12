@@ -64,7 +64,7 @@ public class DateExtensionSettingsActivity
 
     final EditTextPreference shortDateEditText = (EditTextPreference) this.findPreference(PREF_SHORT_DATE_FORMAT);
     shortDateEditText.setDefaultValue(DEFAULT_SHORT_DATE_FORMAT);
-    if (shortDateEditText.getText().isEmpty()) {
+    if (TextUtils.isEmpty(shortDateEditText.getText())) {
       shortDateEditText.setText(DEFAULT_SHORT_DATE_FORMAT);
     }
     shortDateEditText.setSummary(buildSummaryText(shortDateEditText.getText()));
