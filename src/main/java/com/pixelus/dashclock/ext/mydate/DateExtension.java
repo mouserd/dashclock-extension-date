@@ -29,7 +29,7 @@ public class DateExtension extends DashClockExtension {
   public static final String PREF_LONG_DATE_FORMAT = "pref_long_date_format";
 
   public static final String DEFAULT_LONG_DATE_FORMAT =
-      "EEEEE" + " " + ((SimpleDateFormat) SimpleDateFormat.getDateInstance(LONG)).toLocalizedPattern();
+      "EEE " + ((SimpleDateFormat) SimpleDateFormat.getDateInstance(LONG)).toLocalizedPattern();
   public static final String DEFAULT_SHORT_DATE_FORMAT =
       ((SimpleDateFormat) SimpleDateFormat.getDateInstance(SHORT)).toLocalizedPattern();
 
